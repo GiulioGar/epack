@@ -1,14 +1,21 @@
 ﻿
-/*=============================================================
-    Authour URI: www.binarytheme.com
-    License: Commons Attribution 3.0
+/*additional style */
+.imgShelf  {text-align: center; }
+.imgShelf img {width:80% !important;  }
 
-    http://creativecommons.org/licenses/by/3.0/
+.tableShelf td{ border:1px rgb(201, 199, 199) solid!important;}
+.tableShelf {   
+  max-height: 700px;
+  overflow: auto;
+  display:inline-block;
+}
 
-    100% Free To use For Personal And Commercial Use.
-    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
-    ========================================================  */
+.sizeShelf { text-align: right;}
+.priceInfo { margin-top: 10px; color:rgb(13, 112, 179); font-size: 22px; font-weight: bold;}
+.priceShelf { float:left; width: 50%;}
+.addShelf {  text-align: right;}
+.description {font-size: small; color:grey;}
+
 
 
 
@@ -105,9 +112,6 @@ background-color:#D2FFBC;
     color: black;
   }
 
-/* TABLE  */
-
-.table { font-size: small;}
 
   
   
@@ -208,3 +212,4 @@ margin-left:5px;
 .tooltip.bs-tooltip-top .arrow:before {
   border-right-color: #218838 !important;
 }
+

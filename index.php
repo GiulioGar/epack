@@ -9,13 +9,22 @@ $jsonFile = file_get_contents('options.json');
 $decoded_json = json_decode($jsonFile, true);
  
 $setting= $decoded_json['setting'];
+$shelfInfo= $decoded_json['shelf'];
 
+// get setting info
 foreach($setting as $setOpt) {
   $title = $setOpt['heading'];
   $nItems = $setOpt['num_items'];
   $questionTxt = $setOpt['qtext'];
   $questionSubTxt = $setOpt['qtext2'];
   $basketTxt = $setOpt['basketTitle'];
+
+}
+
+foreach($shelfInfo as $setShelf) {
+  $size = $setShelf['size'];
+  $price = $setShelf['price'];
+  $desc = $setShelf['description'];
 
 }
 
@@ -68,8 +77,8 @@ foreach($setting as $setOpt) {
 <div class="col-xl-9"> 
 <div class="card shadow mb-12 ">
 
-  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	<h6 class="m-0 font-weight-bold text-primary"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
+  <div style="background-color:#2A3139;" class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+	<h6 style="color:#fff" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
  </div>
 
 <div class="card-body">  
@@ -78,14 +87,8 @@ foreach($setting as $setOpt) {
 
 <div class="col-md-12">
 
-<!-- TABELLA DATI  DA  ENGAGE-->
-
-<?php
-
-
-?>
-
-<table class="table">
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+<table class="table tableShelf table-striped mb-0">
   <thead class="thead-light">
   </thead>
 
@@ -93,13 +96,35 @@ foreach($setting as $setOpt) {
   
   <?php
   
-$num_rows=$nItems/5;
+$num_rows=ceil($nItems/5);
+$countItems=1;
+$indexArr=0;
+
 for ($r = 1; $r <= $num_rows; $r++) 
 {
   echo "<tr>";
 for ($i = 1; $i <= 5; $i++) 
 {
-    echo "<td>Prodotto </td>";
+    echo "<td>";
+
+    if ($countItems<=$nItems)
+    {
+
+    echo"
+    <div class='contain'>
+    <div id='img".$countItems."' class='imgShelf'><img src='res/img/".$countItems.".png'/></div> 
+    <div id='size".$countItems."' class='sizeShelf'><span class='badge badge-dark'>".$size[ $indexArr]."</span></div>
+    <div class='priceInfo'>
+    <div id='price".$countItems."' class='priceShelf'><span>".$price[ $indexArr]."</span></div>
+    <div id='addButton".$countItems."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
+    </div>
+
+    <div id='des".$countItems."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
+
+     </div></td>";
+    $countItems++;
+    $indexArr++;
+    } 
 }
 echo "</tr>";
 }
@@ -109,7 +134,7 @@ echo "</tr>";
 
   </tbody>
 </table>
-
+</div>
 
 
 

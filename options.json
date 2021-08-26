@@ -4,11 +4,38 @@
     {
     
     "heading":"My website",
-    "num_items": 40,
+    "num_items": 16,
     "qtext":"Which product would you buy?",
     "qtext2":"You can scroll the page and click on each product to see its details",
     "basketTitle": "My Basket"
     }
     
+],
+
+"shelf":[
+
+    {
+    "size": ["100 ml","200 ml","250 ml","300 ml", "350 ml","100 ml","200 ml","250 ml","300 ml", "350 ml","100 ml","200 ml","250 ml","300 ml", "350 ml", "400ml"],
+    "price": ["2.10€","1.85€","3.35€","3.22€", "3.50 €","3.24€","2.10€","1.85€","3.35€","3.22€", "350 €","3.24€","2.10€","1.85€","3.35€","3.22€", "350 €","3.24€", "2.99€"],
+    "description": [
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova",
+        "Prova prova prova prova prova prova"
+    ]
+    }
 ]
+
 }
