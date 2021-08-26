@@ -1,0 +1,14 @@
+{
+
+"setting":[
+    {
+    
+    "heading":"My website",
+    "num_items": 40,
+    "qtext":"Which product would you buy?",
+    "qtext2":"You can scroll the page and click on each product to see its details",
+    "basketTitle": "My Basket"
+    }
+    
+]
+}

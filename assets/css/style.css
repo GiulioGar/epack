@@ -1,0 +1,210 @@
+﻿
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% Free To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+ html {
+  height: 100% !important;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.content-wrapper { min-height: 100% !important; }
+
+.row { padding:10px;}
+
+
+
+/* =============================================================
+   FOOTER SECTION STYLES
+ ============================================================ */
+ footer{
+    color: white;
+  }
+  footer a{
+    color:#6D6D6D;
+  }
+  footer a:hover{
+    color: rgb(187, 25, 25);
+    text-decoration: none;
+  }
+
+  span.iconFooter :hover{
+    color: rgb(187, 25, 25);
+  }
+  
+  .footer-bottom{
+    background: #6D6D6D;
+    padding: 2em;
+  
+  }
+
+  .footer-bottom .row{
+    text-align: center;
+  }
+
+  .footer-top{
+    background:  #66AB01;
+    color:#6D6D6D;
+    font-weight: bold;
+    ; 
+     
+  }
+
+  .footer-title { color:#ffffff; text-align: center;}
+
+  .footer-top .card
+  {
+background-color:#D2FFBC;
+  }
+
+  .footer-middle{
+     background: #3d6277;
+    padding-top: 2em;
+    color: white;
+  }
+  /**Sub Navigation**/
+  .subnavigation-container{
+    background: #3d6277;
+  }
+  .subnavigation .nav-link{
+    color: white;
+    font-weight: bold;
+  }
+  .subnavigation-container{
+    text-align: center;
+  }
+  .subnavigation-container .navbar{
+    display: inline-block;
+    margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+  }
+  .col-subnav a{
+    padding: 1rem 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  .col-subnav .active{
+    border-top:5px solid orange;
+   background: white;
+    color: black;
+  }
+
+/* TABLE  */
+
+.table { font-size: small;}
+
+  
+  
+
+	
+/* aggiunta */
+
+#aggiungi{ width:550px; height:450px; background-color:#FFF; display:none; z-index:+300; position:absolute; left:30%; top:20%; -moz-border-radius: 15px;  -webkit-border-radius: 15px;
+border-radius: 15px;}
+.modifica{ width:550px; height:450px; background-color:#FFF; display:none; z-index:+300; position:absolute; left:30%; top:20%; -moz-border-radius: 15px;  -webkit-border-radius: 15px;
+border-radius: 15px;}	
+
+
+/* Crea link css */
+.copylink {margin-left:30px; width:40px; height:20px; background:#efefef; text-align:center;}
+.copylink:hover {background:#0065ca; color:white;}
+#modLink {padding:10px; height:150px;}
+
+
+.apriMod:hover{cursor:pointer;}
+.chiudi{ font-size:12px; color:red; font-weight:bold; position:absolute; right:2%; top:-1%;  cursor:pointer;}
+.overlay{
+    background:#000;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:100;
+    cursor:pointer;
+/*Trasperenza cross browser*/
+opacity: .7; filter: alpha(opacity=70);
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";  
+ 
+}
+
+#forClo { cursor:pointer;}
+#botClo { background-color:red;
+    display: block;
+	height:25px;
+	width:70px;
+	font-size: 10px;
+	cursor:pointer;
+	vertical-align:middle;
+	text-align:center;
+	}
+	
+
+.nam
+{
+color:#000051;
+font-size:24px;
+margin-bottom:10px;
+margin-left:5px;
+}
+
+.subnam
+{
+color:#0000D7;
+font-size:16px;
+margin-bottom:10px;
+margin-left:5px;
+}
+
+.btn-style{
+	border : solid 2px #c7c7c7;
+	border-radius : 5px 5px 20px 20px ;
+	moz-border-radius : 5px 5px 20px 20px ;
+	font-size : 20px;
+	color : #00b7ff;
+	padding : 2px 10px;
+	background : #ffffff;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e6e6e6));
+	background : -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -webkit-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -o-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : -ms-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	background : linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
+
+}
+
+
+/* TOOLTIP */
+
+.tooltip-inner {
+  background-color: #218838;
+}
+.tooltip.bs-tooltip-right .arrow:before {
+  border-right-color: #218838 !important;
+}
+.tooltip.bs-tooltip-left .arrow:before {
+  border-right-color: #218838 !important;
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-right-color: #218838 !important;
+}
+.tooltip.bs-tooltip-top .arrow:before {
+  border-right-color: #218838 !important;
+}
