@@ -18,6 +18,9 @@ foreach($setting as $setOpt) {
   $questionTxt = $setOpt['qtext'];
   $questionSubTxt = $setOpt['qtext2'];
   $basketTxt = $setOpt['basketTitle'];
+  $currency = $setOpt['currency'];
+  $scrollTime = $setOpt['scrollTime'];
+
 
 }
 
@@ -25,6 +28,7 @@ foreach($shelfInfo as $setShelf) {
   $size = $setShelf['size'];
   $price = $setShelf['price'];
   $desc = $setShelf['description'];
+  $iid = $setShelf['iid'];
 
 }
 
@@ -197,24 +201,27 @@ for ($i = 1; $i <= 5; $i++)
 
     if ($countItems<=$nItems)
     {
+      $id=$iid[ $indexArr];
+      $viewPrice=number_format($price[$indexArr],2);
+      $viewPrice=$viewPrice.$currency;
 
     echo"
     <div id='r".$i."_c".$r."' class='products' >
-    <div id='img".$countItems."' class='imgShelf'><img src='res/img/".$countItems.".png'/></div> 
+    <div id='img".$id."' class='imgShelf'><img src='res/img/".$id.".png'/></div> 
 
-    <div id='size".$countItems."' class='sizeShelf'>
+    <div id='size".$id."' class='sizeShelf'>
     <span class='badge badge-dark'>".$size[ $indexArr]."</span>
-    <span id='edit-item' class='zoom'  data-price='$price[$indexArr]' data-size='$size[$indexArr]' data-info='$desc[$indexArr]' data-img='$countItems' >
+    <span id='edit-item' class='zoom'  data-price='$viewPrice' data-size='$size[$indexArr]' data-info='$desc[$indexArr]' data-img='$id' >
     <i class='fas fa-search-plus'></i>
    </span>
     
     </div>
     <div class='priceInfo'>
-    <div id='price".$countItems."' class='priceShelf'><span>".$price[ $indexArr]."</span></div>
-    <div id='addButton".$countItems."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
+    <div id='price".$id."' class='priceShelf'><span>".$viewPrice."</span></div>
+    <div id='addButton".$id."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
     </div>
 
-    <div id='des".$countItems."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
+    <div id='des".$id."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
 
      </div>";
     $countItems++;
