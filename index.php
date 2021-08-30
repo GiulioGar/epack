@@ -124,7 +124,7 @@ foreach($shelfInfo as $setShelf) {
 
 <br/><br/>
 
-<div class="row basket">
+<div style='margin-bottom:5%' class="row basket">
 <div class="col">
 <div class="card shadow">
 
