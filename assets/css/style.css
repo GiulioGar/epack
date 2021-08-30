@@ -3,19 +3,11 @@
 .imgShelf  {text-align: center; }
 .imgShelf img {width:80% !important;  }
 
-.tableShelf td{ border:1px rgb(201, 199, 199) solid!important;}
-.tableShelf {   
-  max-height: 700px;
-  overflow: auto;
-  display:inline-block;
-}
-
 .sizeShelf { text-align: right;}
 .priceInfo { margin-top: 10px; color:rgb(13, 112, 179); font-size: 22px; font-weight: bold;}
 .priceShelf { float:left; width: 50%;}
 .addShelf {  text-align: right;}
 .description {font-size: small; color:grey;}
-
 
 
 
@@ -36,6 +28,12 @@ body {
 
 .row { padding:10px;}
 
+.products { float:left; border:1px solid rgb(187, 187, 187);}
+.priceInfo {padding: 5px;}
+.sizeShelf {padding: 2px;}
+.description {padding:2px;}
+
+.answerBox {clear:both;}
 
 
 /* =============================================================

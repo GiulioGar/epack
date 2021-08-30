@@ -74,92 +74,7 @@ foreach($shelfInfo as $setShelf) {
 
 <div class="row">
 
-<div class="col-xl-9"> 
-<div class="card shadow mb-12 ">
-
-  <div style="background-color:#2A3139;" class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	<h6 style="color:#fff" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
- </div>
-
-<div class="card-body">  
-
-<div class="row">
-
-<div class="col-md-12">
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
-<table class="table tableShelf table-striped mb-0">
-  <thead class="thead-light">
-  </thead>
-
-  <tbody>
-  
-  <?php
-  
-$num_rows=ceil($nItems/5);
-$countItems=1;
-$indexArr=0;
-
-for ($r = 1; $r <= $num_rows; $r++) 
-{
-  echo "<tr>";
-for ($i = 1; $i <= 5; $i++) 
-{
-    echo "<td>";
-
-    if ($countItems<=$nItems)
-    {
-
-    echo"
-    <div class='contain'>
-    <div id='img".$countItems."' class='imgShelf'><img src='res/img/".$countItems.".png'/></div> 
-    <div id='size".$countItems."' class='sizeShelf'><span class='badge badge-dark'>".$size[ $indexArr]."</span></div>
-    <div class='priceInfo'>
-    <div id='price".$countItems."' class='priceShelf'><span>".$price[ $indexArr]."</span></div>
-    <div id='addButton".$countItems."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
-    </div>
-
-    <div id='des".$countItems."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
-
-     </div></td>";
-    $countItems++;
-    $indexArr++;
-    } 
-}
-echo "</tr>";
-}
-  ?>
-
-
-
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-</div>
-
-</div>
-
-
-
-
-</div>
-</div>
-
-
-<div class="col-xl-3"> 
+<div class="col-xl-3 answerBox order-md-2" > 
 
 <div class="row qtitle">
 
@@ -249,6 +164,94 @@ echo "</tr>";
 
 
 </div>
+
+<div class="col-xl-9 order-md-1" > 
+<div class="card shadow mb-12 ">
+
+  <div style="background-color:#2A3139;" class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+	<h6 style="color:#fff" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
+ </div>
+
+<div class="card-body">  
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+  
+  <?php
+  
+$num_rows=ceil($nItems/5);
+$countItems=1;
+$indexArr=0;
+
+for ($r = 1; $r <= $num_rows; $r++) 
+{
+
+echo "<div id='row".$r."' class='rowShelf'>";
+
+for ($i = 1; $i <= 5; $i++) 
+{
+  
+
+    if ($countItems<=$nItems)
+    {
+
+    echo"
+    <div id='r".$i."_c".$r."' class='products'>
+    <div id='img".$countItems."' class='imgShelf'><img src='res/img/".$countItems.".png'/></div> 
+    <div id='size".$countItems."' class='sizeShelf'><span class='badge badge-dark'>".$size[ $indexArr]."</span></div>
+    <div class='priceInfo'>
+    <div id='price".$countItems."' class='priceShelf'><span>".$price[ $indexArr]."</span></div>
+    <div id='addButton".$countItems."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
+    </div>
+
+    <div id='des".$countItems."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
+
+     </div>";
+    $countItems++;
+    $indexArr++;
+    } 
+
+  }
+
+  echo "</div>";
+
+}
+
+
+  ?>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
 
 
 
