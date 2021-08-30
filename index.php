@@ -80,8 +80,8 @@ foreach($shelfInfo as $setShelf) {
 <div class="col-xl-3 answerBox order-md-2" > 
 
 <div class="row qtitle">
-
-<div class="card shadow mb-12 ">
+<div class="col">
+<div class="card shadow ">
 
    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 	<h6 class="m-0 font-weight-bold text-primary"> </h6>
@@ -119,13 +119,14 @@ foreach($shelfInfo as $setShelf) {
 
 
 </div>
-
+</div>
 </div>
 
+<br/><br/>
 
 <div class="row basket">
-
-<div class="card shadow mb-12" style="width:100%">
+<div class="col">
+<div class="card shadow">
 
    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 	<h6 class="m-0 font-weight-bold text-primary"> <?php echo $basketTxt; ?>  </h6>
@@ -161,6 +162,7 @@ foreach($shelfInfo as $setShelf) {
 
 
 </div>
+</div>
 
 </div>
 
@@ -169,7 +171,8 @@ foreach($shelfInfo as $setShelf) {
 </div>
 
 <div class="col-xl-9 order-md-1" > 
-<div class="card shadow mb-12 ">
+<div class="col">
+<div class="card shadow">
 
   <div style="background-color:#2A3139;" class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 	<h6 style="color:#fff" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
@@ -181,7 +184,6 @@ foreach($shelfInfo as $setShelf) {
 
 <div class="col-md-12">
 
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
 
   
   <?php
@@ -189,12 +191,11 @@ foreach($shelfInfo as $setShelf) {
 $num_rows=ceil($nItems/5);
 $countItems=1;
 $indexArr=0;
-
+echo "<div class='row'>";
 for ($r = 1; $r <= $num_rows; $r++) 
 {
 
-echo "<div id='row".$r."' class='rowShelf'>";
-
+ 
 for ($i = 1; $i <= 5; $i++) 
 {
   
@@ -206,7 +207,7 @@ for ($i = 1; $i <= 5; $i++)
       $viewPrice=$viewPrice.$currency;
 
     echo"
-    <div id='r".$i."_c".$r."' class='products' >
+    <div id='r".$i."_c".$r."' class='products col-lg-2 col-md-3 col-sm-4' >
     <div id='img".$id."' class='imgShelf'><img src='res/img/".$id.".png'/></div> 
 
     <div id='size".$id."' class='sizeShelf'>
@@ -221,7 +222,7 @@ for ($i = 1; $i <= 5; $i++)
     <div id='addButton".$id."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
     </div>
 
-    <div id='des".$id."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
+    <div id='des".$id."' class='description'> <span class='justify-content-center'>".$desc[ $indexArr]."</span>  </div>
 
      </div>";
     $countItems++;
@@ -229,25 +230,20 @@ for ($i = 1; $i <= 5; $i++)
     } 
 
   }
+  
 
-  echo "</div>";
+
 
 }
-
+echo "</div>";
 
   ?>
 
 
 
-</div>
 
 
 
-
-
-
-
-</div>
 
 
 
@@ -255,12 +251,22 @@ for ($i = 1; $i <= 5; $i++)
 
 </div>
 
+
+
+
+
+</div>
+
 </div>
 
 
 
 
 </div>
+
+</div>
+
+
 </div>
 
 

@@ -10,11 +10,11 @@
 .description {font-size: small; color:grey;}
 span.zoom{ color:rgb(13, 112, 179)!important; cursor: pointer;}
 
-.products { float:left; border:1px solid rgb(187, 187, 187);}
+.products {  border:1px solid rgb(187, 187, 187);}
 .sizeShelf {padding: 2px;}
 .description {padding:2px;}
 
-.answerBox {clear:both;}
+/* .answerBox {clear:both;} */
 
 /*modal css */
 .mdesc { position:relative; top:33%;}
@@ -39,7 +39,7 @@ body {
 
 .content-wrapper { min-height: 100% !important; }
 
-.row { padding:10px;}
+
 
 
 
