@@ -4,10 +4,23 @@
 .imgShelf img {width:80% !important;  }
 
 .sizeShelf { text-align: right;}
-.priceInfo { margin-top: 10px; color:rgb(13, 112, 179); font-size: 22px; font-weight: bold;}
+.priceInfo { margin-top: 10px; color:rgb(13, 112, 179); font-size: 22px; font-weight: bold; padding: 5px;}
 .priceShelf { float:left; width: 50%;}
 .addShelf {  text-align: right;}
 .description {font-size: small; color:grey;}
+span.zoom{ color:rgb(13, 112, 179)!important; cursor: pointer;}
+
+.products { float:left; border:1px solid rgb(187, 187, 187);}
+.sizeShelf {padding: 2px;}
+.description {padding:2px;}
+
+.answerBox {clear:both;}
+
+/*modal css */
+.mdesc { position:relative; top:33%;}
+.mdescp { color:rgb(13, 112, 179); margin-bottom: 10px; font-size: 24px; font-weight: bold; }
+.mdescs { color:rgb(187, 25, 25); margin-bottom: 10px;font-size: 20px; }
+
 
 
 
@@ -28,12 +41,6 @@ body {
 
 .row { padding:10px;}
 
-.products { float:left; border:1px solid rgb(187, 187, 187);}
-.priceInfo {padding: 5px;}
-.sizeShelf {padding: 2px;}
-.description {padding:2px;}
-
-.answerBox {clear:both;}
 
 
 /* =============================================================

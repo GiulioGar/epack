@@ -201,11 +201,17 @@ for ($i = 1; $i <= 5; $i++)
     echo"
     <div id='r".$i."_c".$r."' class='products' >
     <div id='img".$countItems."' class='imgShelf'><img src='res/img/".$countItems.".png'/></div> 
-    <div id='size".$countItems."' class='sizeShelf'><span class='badge badge-dark'>".$size[ $indexArr]."</span></div>
+
+    <div id='size".$countItems."' class='sizeShelf'>
+    <span class='badge badge-dark'>".$size[ $indexArr]."</span>
+    <span id='edit-item' class='zoom'  data-price='$price[$indexArr]' data-size='$size[$indexArr]' data-info='$desc[$indexArr]' data-img='$countItems' >
+    <i class='fas fa-search-plus'></i>
+   </span>
+    
+    </div>
     <div class='priceInfo'>
     <div id='price".$countItems."' class='priceShelf'><span>".$price[ $indexArr]."</span></div>
     <div id='addButton".$countItems."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
-    <div id='addButton".$countItems."' class='addShelf'><button id='edit-item'  data-price=$price[$indexArr] data-size=$size[$indexArr] data-info=$desc[$indexArr] data-img=$countItems>Apri</button></div>
     </div>
 
     <div id='des".$countItems."' class='description'> <span>".$desc[ $indexArr]."</span>  </div>
@@ -258,70 +264,35 @@ for ($i = 1; $i <= 5; $i++)
 
 </div>
 
-<!-- modal window -->
+<!-- modal window products -->
 
 <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modifica Progetto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                      <form id="modForm" action="#" method="POST" >
-                          <input type="hidden" name="_method" value="PATCH">
-                          <input type="hidden" id="idmodaltab" name="tab" value="">
-                          <input type="hidden" name="salvaid" id="salvaid" value="">
-                          <div class="form-group">
-                          <label>Codice progetto</label>
-                          <input required type="text" class="form-control" id="modal-input-name" name="name" aria-describedby="Codice" placeholder="Inserisci codice del progetto" value="">
-                          </div>
-                          <div class="form-group">
-                            <div class="bootstrap-select-wrapper">
-                              <label>Tipologia</label>
-                              <select required title="Scegli una opzione" name="idtipo[]" id="idtipomod" class="selectpicker" multiple data-live-search="true">
-                                <option value="CAWI">CAWI</option>
-                                <option value="CAPI">CAPI</option>
-                                <option value="CATI">CATI</option>
-                                <option value="MYSTERY">MYSTERY</option>
-                                <option value="Focus Group">FOCUS GROUP</option>
-                                <option value="IDI/ETHNO">IDI / ETHNO</option>
-                                <option value="GANG">GANG</option>
-                                <option value="ALTRE QUALI">ALTRE QUALI</option>
-                                </select>
-                                
-                            </div>
-                            </div>
-                            
-                            <div class="form-group" id="formpaesi">
-                              <div class="bootstrap-select-wrapper">
-                                <label>Paesi</label>
-                                <select required title="Scegli una opzione" name="idpaesi[]" id="idpaesimod" class="selectpicker" multiple data-live-search="true">
-                                  <option value="ITALIA">ITALIA</option>
-                                  <option value="UK">UK</option>
-                                  <option value="SPAGNA">SPAGNA</option>
-                                  <option value="GERMANIA">GERMANIA</option>
-                                  <option value="FRANCIA">FRANCIA</option>
-                                  <option value="USA">USA</option>
-                                  <option value="RUSSIA">RUSSIA</option>
-                                  <option value="SVIZZERA">SVIZZERA</option>
-                                  <option value="OLANDA">OLANDA</option>
-                                  <option value="POLONIA">POLONIA</option>
-                                  <option value="CINA">CINA</option>
-                                  <option value="GIAPPONE">GIAPPONE</option>
-                                  </select>
-                                  
-                              </div>
-                              </div>
 
+                  <div class="row">
+                  
+                 
 
-                    </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CHIUDI</button>
-                    <button type="submit" class="btn btn-primary">MODIFICA</button>
-                </form>
+                      <div class="col-xl-9 modalImg" > 
+
+                      </div>
+
+                      <div class="col-xl-3 modalInfo" > 
+
+                      </div>
+
+                  
+                  </div>
+
+                      
                   </div>
                 </div>
               </div>
@@ -339,6 +310,11 @@ for ($i = 1; $i <= 5; $i++)
 
 $(document).on('click', "#edit-item", function() {
 
+  $(".modalImg").empty();
+  $(".modalInfo").empty();
+  $("#exampleModalLabel").empty();
+
+$(this).removeClass('edit-item-trigger-clicked'); 
 $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
 
 var options = {
@@ -358,45 +334,21 @@ var price=el.attr('data-price');
 var size=el.attr('data-size');
 var description=el.attr('data-info');
 var img=el.attr('data-img');
-//var price=
-console.log(price);
-//alert('tabname:'+tabname);
 
-// prelva id inserito nel campo href come data
-var id = el.data('item-id');
-var description = el.data('description');
-var name = el.data('prjname');
-//var paesi=el.data('country');
-var tipo=el.data('type');
-var idpm=el.data('idpm');
-var idcl=el.data('idcl');
-var paesi=el.data('paesi');
+size=size.toString();
+console.log("Size "+price)
 
-/*
-var startData = row.children(".sd").text();
-var endData = row.children(".ed").text();
-*/
-var startData = el.data('start');
-var endData = el.data('end');
-//elaboro url per action form e lo aggiungo
-var urlAction="/projects/"+id;
-//alert(urlAction);
-$('#modForm').attr('action', urlAction);
-$("#formpm select").val(idpm);
-$("#formcustomer select").val(idcl);
+let image="<div class='mimg'><img src='res/img/"+img+".png'/></div>";
+let modTitle="<div class='mtit'>"+description+"</div>"; 
+let descMod="<div class='mdesc'> <div class='mdescs'> "+size+" </div><div class='mdescp'> "+price+" </div></div>";
+
+$("#exampleModalLabel").append(description);
+$(".modalImg").append(image);
+$(".modalInfo").append(descMod);
 
 
-//alert(description);
-// fill the data in the input fields
-$("#modal-input-id").val(id);
-$("#modal-input-description").val(description);
-$("#modal-input-name").val(name);
-$("#modal-input-sd").val(startData);
-$("#modal-input-ed").val(endData);
-$("#salvaid").val(id);
 
-var customerselected=el.data('customer');
-$('#idcustomer2').val( customerselected );
+
 
 
 })
