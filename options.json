@@ -7,9 +7,10 @@
     "num_items": 16,
     "qtext":"Which product would you buy?",
     "qtext2":"You can scroll the page and click on each product to see its details",
-    "basketTitle": "My Basket",
+    "basketTitle": "My Cart",
     "currency": "€",
-    "scrollTime":5000
+    "scrollTime":5000,
+    "orderItems":["Sort by: Featured","Sort by: Price: Low to High","Sort by: Price: High to Low"]
     }
     
 ],

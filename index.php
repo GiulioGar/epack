@@ -20,6 +20,7 @@ foreach($setting as $setOpt) {
   $basketTxt = $setOpt['basketTitle'];
   $currency = $setOpt['currency'];
   $scrollTime = $setOpt['scrollTime'];
+  $orderItems = $setOpt['orderItems'];
 
 
 }
@@ -75,7 +76,7 @@ foreach($shelfInfo as $setShelf) {
 
 <body>
 
-<div class="row">
+<div id="container" class="row">
 
 <div class="col-xl-3 answerBox order-md-2" > 
 
@@ -175,7 +176,21 @@ foreach($shelfInfo as $setShelf) {
 <div class="card shadow">
 
   <div style="background-color:#2A3139;" class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	<h6 style="color:#fff" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; <span style="float:right"></span> </h6>
+
+    <div class="col-md-9">
+    <h6 style="color:#fff; width:100%" class="m-0 font-weight-bold"> <?php echo $title ?> &nbsp; </h6>
+    </div>
+    <div class="col-md-3 text-left">
+    <form role="form" name="prductOrder" >
+							<select class="form-control form-control-sm Canno" name="Canno">
+								<option value="1"><?php echo $orderItems[0] ?></option>
+								<option value="2"><?php echo $orderItems[1] ?></option>
+								<option value="3"><?php echo $orderItems[2] ?></option>
+							</select>
+						</form>
+    </div>
+  
+
  </div>
 
 <div class="card-body">  
@@ -191,50 +206,8 @@ foreach($shelfInfo as $setShelf) {
 $num_rows=ceil($nItems/5);
 $countItems=1;
 $indexArr=0;
-echo "<div class='row'>";
-for ($r = 1; $r <= $num_rows; $r++) 
-{
+echo "<div class='row shelfCont'>";
 
- 
-for ($i = 1; $i <= 5; $i++) 
-{
-  
-
-    if ($countItems<=$nItems)
-    {
-      $id=$iid[ $indexArr];
-      $viewPrice=number_format($price[$indexArr],2);
-      $viewPrice=$viewPrice.$currency;
-
-    echo"
-    <div id='r".$i."_c".$r."' class='products col-lg-2 col-md-3 col-sm-4' >
-    <div id='img".$id."' class='imgShelf'><img src='res/img/".$id.".png'/></div> 
-
-    <div id='size".$id."' class='sizeShelf'>
-    <span class='badge badge-dark'>".$size[ $indexArr]."</span>
-    <span id='edit-item' class='zoom'  data-price='$viewPrice' data-size='$size[$indexArr]' data-info='$desc[$indexArr]' data-img='$id' >
-    <i class='fas fa-search-plus'></i>
-   </span>
-    
-    </div>
-    <div class='priceInfo'>
-    <div id='price".$id."' class='priceShelf'><span>".$viewPrice."</span></div>
-    <div id='addButton".$id."' class='addShelf'><span><i class='fas fa-cart-plus'></i></span></div>
-    </div>
-
-    <div id='des".$id."' class='description'> <span class='justify-content-center'>".$desc[ $indexArr]."</span>  </div>
-
-     </div>";
-    $countItems++;
-    $indexArr++;
-    } 
-
-  }
-  
-
-
-
-}
 echo "</div>";
 
   ?>
@@ -314,11 +287,53 @@ echo "</div>";
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+<script src="assets/js/selItem.js"></script>
 
-
-
-<!-- script for modal window -->
 <script>
+
+//ajax code for shelf 
+
+
+function addItems(){
+
+let can= $("select.Canno").val();
+let products;
+
+  //chiamata ajax
+    $.ajax({
+
+     //imposto il tipo di invio dati (GET O POST)
+      type: "POST",
+
+      //Dove devo inviare i dati recuperati dal form?
+      url: "support.php",
+
+      //Quali dati devo inviare?
+      data: "Canno="+can, 
+      dataType: "html",
+	  success: function(data) 
+	  					{ 
+							products=$(data).filter(".products");
+							$(".shelfCont").html(products);
+						}
+
+ 
+});
+
+}
+
+$("select.Canno").on('change', function() {
+addItems();
+});
+
+$(document).ready(function () {
+  addItems();
+});
+
+
+
+//script for modal window
+
 
 
 $(document).on('click', "#edit-item", function() {
@@ -349,7 +364,6 @@ var description=el.attr('data-info');
 var img=el.attr('data-img');
 
 size=size.toString();
-console.log("Size "+price)
 
 let image="<div class='mimg'><img src='res/img/"+img+".png'/></div>";
 let modTitle="<div class='mtit'>"+description+"</div>"; 
