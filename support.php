@@ -54,14 +54,14 @@ for ($i = 1; $i <= 5; $i++)
 
     <div id='size".$id."' class='sizeShelf'>
     <span class='badge badge-dark'>".$size[ $indexArr]."</span>
-    <span id='edit-item' class='zoom'  data-price='$viewPrice' data-size='$size[$indexArr]' data-info='$desc[$indexArr]' data-img='$id' >
+    <span id='edit-item' class='zoom'  data-price='$viewPrice' data-size='$size[$indexArr]' data-info=\"$desc[$indexArr]\" data-img='$id' >
     <i class='fas fa-search-plus'></i>
    </span>
     
     </div>
     <div class='priceInfo'>
     <div id='price".$id."' class='priceShelf'><span>".$viewPrice."</span></div>
-    <div id='addButton".$id."' class='addShelf'><span id='edit-prod' class='cart".$id." viewCart'><i class='fas fa-cart-plus'></i></span></div>
+    <div id='addButton".$id."' class='addShelf'><span id='edit-prod' class='cart".$id." viewCart' data-price='$viewPrice' data-size='$size[$indexArr]' data-info=\"$desc[$indexArr]\" data-img='$id'><i class='fas fa-cart-plus'></i></span></div>
     </div>
 
     <div id='des".$id."' class='description'> <span class='justify-content-center'>".$desc[ $indexArr]."</span>  </div>

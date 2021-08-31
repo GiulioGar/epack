@@ -9,7 +9,7 @@
 .addShelf {  text-align: right;}
 .description {font-size: small; color:grey;}
 span.zoom{ color:rgb(13, 112, 179)!important; cursor: pointer;}
-span.viewCart{cursor: pointer!important;}
+span.viewCart:not(.edit-prod-clicked){cursor: pointer!important;}
 
 .products {  border:1px solid rgb(187, 187, 187);}
 .sizeShelf {padding: 2px;}
@@ -20,6 +20,15 @@ span.viewCart{cursor: pointer!important;}
 .mdesc { position:relative; top:33%;}
 .mdescp { color:rgb(13, 112, 179); margin-bottom: 10px; font-size: 24px; font-weight: bold; }
 .mdescs { color:rgb(187, 25, 25); margin-bottom: 10px;font-size: 20px; }
+
+/* cart elements */
+
+.cart {border:1px solid rgb(187, 187, 187);  font-size: 14px; color:rgb(100, 100, 100); padding:5px;}
+.cartImg img {width: 65%!important; }
+.cartPrice {font-weight: bold; }
+.cartItems { vertical-align: middle;}
+
+
 
 /* =============================================================
    GENERAL STYLES

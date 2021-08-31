@@ -130,7 +130,7 @@ foreach($shelfInfo as $setShelf) {
 <div class="card shadow">
 
    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-	<h6 class="m-0 font-weight-bold text-primary"> <?php echo $basketTxt; ?>  </h6>
+	<h6 class="btitle m-0 font-weight-bold text-primary"> <?php echo $basketTxt; ?>  </h6>
  </div>
 
 <div class="card-body">  
@@ -142,7 +142,7 @@ foreach($shelfInfo as $setShelf) {
 <!--BASKET SPACE-->
 
 <div id="basketItems" style="text-align:center">
-  <span style="font-size:80px;"><i class="fas fa-shopping-cart"></i></span>
+  <span class="iconCart" style="font-size:80px;"><i class="fas fa-shopping-cart"></i></span>
 
 
 </div>
@@ -372,10 +372,6 @@ let descMod="<div class='mdesc'> <div class='mdescs'> "+size+" </div><div class=
 $("#exampleModalLabel").append(description);
 $(".modalImg").append(image);
 $(".modalInfo").append(descMod);
-
-
-
-
 
 
 })
