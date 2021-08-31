@@ -61,7 +61,7 @@ for ($i = 1; $i <= 5; $i++)
     </div>
     <div class='priceInfo'>
     <div id='price".$id."' class='priceShelf'><span>".$viewPrice."</span></div>
-    <div id='addButton".$id."' class='addShelf'><span class='cart".$id." viewCart'><i class='fas fa-cart-plus'></i></span></div>
+    <div id='addButton".$id."' class='addShelf'><span id='edit-prod' class='cart".$id." viewCart'><i class='fas fa-cart-plus'></i></span></div>
     </div>
 
     <div id='des".$id."' class='description'> <span class='justify-content-center'>".$desc[ $indexArr]."</span>  </div>
