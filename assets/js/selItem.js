@@ -57,6 +57,9 @@ jQuery.each(arrOpts, function( i, val ) {
 if (!$(this).hasClass("edit-prod-clicked")) 
 {
   arrId.push(prodImg); 
+  /* GIUSEPPE */
+  $("#productSelected").val(arrId.join());
+  /* */
 }
 
 $(this).addClass('edit-prod-clicked');
@@ -80,6 +83,9 @@ var index = arrId.indexOf(optDel);
 if (index >= 0) {
   arrOpts.splice( index, 1 );
   arrId.splice( index, 1 );
+  /* GIUSEPPE */
+  $("#productSelected").val(arrId.join());
+  /* */
 }
 
 console.log(arrOpts)

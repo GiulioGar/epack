@@ -2,7 +2,20 @@
 
 <head>
 
+<!-- Giuseppe -->
+<style>
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+</style>
+<!--  -->
+
 <?php
+/* GIUSEPPE */
+$idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
+/* */
+
 // Decode the JSON file
 $jsonFile = file_get_contents('options.json');
  
@@ -71,6 +84,24 @@ foreach($shelfInfo as $setShelf) {
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+<!-- GIUSEPPE -->
+<input type="hidden" id="productSelected" name="productSelected" value="">
+
+
+
+<!-- inizializzo le variabili da registrare -->
+<input type="hidden" name="totalTime" id="totalTime" value=0>
+<input type="hidden" name="selProductPrev" id="selProductPrev" value="<?php echo $idSelectProduct; ?>">
+<?php 
+
+foreach ($iid as $singleId){
+  echo "<input type='hidden' name='timeProductSheet$singleId' id='timeProductSheet$singleId' value=0>";
+  echo "<input type='hidden' name='clickProductSheet$singleId' id='clickProductSheet$singleId' value=0>";
+}
+
+?>
+<!-- -->
 
 </head>
 
@@ -293,10 +324,12 @@ echo "</div>";
 
 //ajax code for shelf 
 
-
+/* GIUSEPPE */
+//modificata sintassi di passaggio data e letto selproductPrev creato sopra
 function addItems(){
 
 let can= $("select.Canno").val();
+var idSelectProduct=$("#selProductPrev").val();
 let products;
 
   //chiamata ajax
@@ -309,7 +342,7 @@ let products;
       url: "support.php",
 
       //Quali dati devo inviare?
-      data: "Canno="+can, 
+      data: {Canno: can, idSelectProduct: idSelectProduct},
       dataType: "html",
 	  success: function(data) 
 	  					{ 
@@ -328,6 +361,13 @@ addItems();
 
 $(document).ready(function () {
   addItems();
+
+  /*GIUSEPPE*/
+  var varStartCronometroSheet;
+  //faccio partire il cronometro relativo al tempo totale
+  var varStartCronometro=setInterval(startCronometro,1000);
+  $("div#box1").addClass("disabledbutton");
+  /* */ 
 });
 
 
@@ -363,6 +403,12 @@ var size=el.attr('data-size');
 var description=el.attr('data-info');
 var img=el.attr('data-img');
 
+/* GIUSEPPE */
+//faccio partire il cronometro della scheda prodotto aperta e registro il click effettuato sulla stessa
+varStartCronometroSheet=setInterval( function() { startCronometroSheet(img); }, 1000 );
+recordClickSheet(img);
+/* */
+
 size=size.toString();
 
 let image="<div class='mimg'><img src='res/img/"+img+".png'/></div>";
@@ -382,7 +428,38 @@ $('#edit-modal').on('hide.bs.modal', function() {
 //quando si chiude la modali viene rimossa la classe trigger all'elemento cliccato
 $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
 $("#edit-form").trigger("reset");
-})            
+/*GIUSEPPE*/
+//stoppo il contatore quando viene chiusa la modale
+stopCronometroSheet();
+/* */
+})  
+
+
+
+/*GIUSEPPE*/
+function startCronometro(){
+    var secondiTotalTime=$("#totalTime").val();
+    secondiTotalTime++;
+    $("#totalTime").val( secondiTotalTime );
+};
+
+
+function startCronometroSheet(id){
+    var secondiSheetTime=$("#timeProductSheet"+id).val();
+    secondiSheetTime++;
+    $("#timeProductSheet"+id).val( secondiSheetTime );
+};
+
+function recordClickSheet(id){
+    var clickSheet=$("#clickProductSheet"+id).val();
+    clickSheet++;
+    $("#clickProductSheet"+id).val( clickSheet );
+};
+
+function stopCronometroSheet(){
+  clearInterval(varStartCronometroSheet);
+};
+/* */
 
 </script>
 

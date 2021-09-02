@@ -28,6 +28,13 @@ foreach($shelfInfo as $setShelf) {
 
 }
 
+/* GIUSEPPE */
+$order=$_POST["Canno"];
+$idSelectProduct=$_POST["idSelectProduct"];
+
+if ($order=="2"){array_multisort($price,$size,$iid,$desc);}
+if ($order=="3"){array_multisort($price,SORT_DESC,$size,$iid,$desc);}
+/* */
   
 $num_rows=ceil($nItems/5);
 $countItems=1;
@@ -49,7 +56,7 @@ for ($i = 1; $i <= 5; $i++)
 
     echo"
     
-    <div id='r".$i."_c".$r."' class='products col-lg-2 col-md-3 col-sm-4' >
+    <div id='box$id' class='products col-lg-2 col-md-3 col-sm-4' >
     <div id='img".$id."' class='imgShelf'><img src='res/img/".$id.".png'/></div> 
 
     <div id='size".$id."' class='sizeShelf'>
