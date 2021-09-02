@@ -18,7 +18,7 @@
 /* GIUSEPPE */
 $idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
 $enableScroll = filter_input(INPUT_GET, 'enableScroll');
-$enableScroll="true";
+$enableScroll="false";
 $disableBody="";
 if ($enableScroll=="true"){
   $disableBody="disabledbody";
@@ -26,6 +26,12 @@ if ($enableScroll=="true"){
 //valore manuale per test
 //$idSelectProduct = 2;
 /* */
+
+//GIULIO 
+//variabile max options from sdl
+$selMax = filter_input(INPUT_GET, 'selMax');
+//test setting
+$selMax=2;
 
 // Decode the JSON file
 $jsonFile = file_get_contents('options.json');
@@ -326,6 +332,7 @@ echo "</div>";
                 </div>
               </div>
             </div>
+          
 
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
@@ -370,6 +377,8 @@ let products;
 $("select.Canno").on('change', function() {
 addItems();
 });
+
+
 
 $(document).ready(function () {
 
@@ -517,7 +526,12 @@ function stopCronometroSheet(){
 
 
 
+//GIULIO//
+//function addItems in Cart
 
+$(document).ready(function () {
+  addItemsCart(<?php echo $selMax;?>);
+});
 
 
 

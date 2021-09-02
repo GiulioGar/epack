@@ -1,7 +1,16 @@
 
-//add item in cart box
 let arrOpts=[];
 let arrId=[];
+//modifica Giulio
+let numOptions=0;
+let numOptionsStamp=1;
+
+//modifica Giulio
+
+//function add item in cart box
+function addItemsCart(selMax){
+
+  $("#maxAlert").hide();
 
 let arrOptsElements;
 let prodName;
@@ -22,15 +31,27 @@ $(document).on('click', "#edit-prod", function() {
 
     let info=String(pri)+";"+String(siz)+";"+String(des)+";"+String(img);
 
-if (!$(this).hasClass("edit-prod-clicked")) 
+//modifica Giulio
+ numOptions=arrOpts.length+1;
+if (!$(this).hasClass("edit-prod-clicked") && (selMax>=numOptions)) 
 {
 $(this).html("<i style=\"color:green\" class=\"fas fa-check\"></i>");
 arrOpts.push(info); 
 }
 
+if (selMax<numOptions)
+{
 
-let numOptions=arrOpts.length;
-$("h6.btitle").append("<span style='font-size:13px' class='nOpt badge badge-pill badge-primary'>"+numOptions+"</span>");
+  $("#basketItems").append($("#maxAlert"));
+  $("#maxAlert").fadeIn();
+}
+
+//modifica Giulio
+numOptionsStamp=arrOpts.length;
+
+
+
+$("h6.btitle").append("<span style='font-size:13px' class='nOpt badge badge-pill badge-primary'>"+numOptionsStamp+"</span>");
 
 jQuery.each(arrOpts, function( i, val ) {
   
@@ -67,6 +88,7 @@ $(this).addClass('edit-prod-clicked');
 
 })
 
+}
 
 //delete item from cart box
 

@@ -34,6 +34,7 @@ $idSelectProduct=$_POST["idSelectProduct"];
 
 if ($order=="2"){array_multisort($price,$size,$iid,$desc);}
 if ($order=="3"){array_multisort($price,SORT_DESC,$size,$iid,$desc);}
+
 /* */
   
 $num_rows=ceil($nItems/5);
