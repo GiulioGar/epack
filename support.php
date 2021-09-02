@@ -54,9 +54,15 @@ for ($i = 1; $i <= 5; $i++)
       $viewPrice=number_format($price[$indexArr],2);
       $viewPrice=$viewPrice.$currency;
 
+      /*GIUSEPPE*/
+      if ($id==$idSelectProduct){$disabled="disabledbutton";}
+      else{ $disabled=""; }
+      /* */
+
+    //GIUSEPPE, MODIFICATO BOX ID E AGGIUNTA VARIABILE DISABLED
     echo"
     
-    <div id='box$id' class='products col-lg-2 col-md-3 col-sm-4' >
+    <div id='box$id' class='products col-lg-2 col-md-3 col-sm-4 $disabled'>
     <div id='img".$id."' class='imgShelf'><img src='res/img/".$id.".png'/></div> 
 
     <div id='size".$id."' class='sizeShelf'>

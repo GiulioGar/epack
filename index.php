@@ -15,7 +15,7 @@
 /* GIUSEPPE */
 $idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
 //valore manuale per test
-//$idSelectProduct = 3;
+//$idSelectProduct = 2;
 /* */
 
 // Decode the JSON file
