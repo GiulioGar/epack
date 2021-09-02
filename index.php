@@ -8,12 +8,21 @@
     pointer-events: none;
     opacity: 0.4;
 }
+.disabledbody {
+    pointer-events: none;
+}
 </style>
 <!--  -->
 
 <?php
 /* GIUSEPPE */
 $idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
+$enableScroll = filter_input(INPUT_GET, 'enableScroll');
+$enableScroll="true";
+$disableBody="";
+if ($enableScroll=="true"){
+  $disableBody="disabledbody";
+}
 //valore manuale per test
 //$idSelectProduct = 2;
 /* */
@@ -95,6 +104,7 @@ foreach($shelfInfo as $setShelf) {
 <!-- inizializzo le variabili da registrare -->
 <input type="hidden" name="totalTime" id="totalTime" value=0>
 <input type="hidden" name="selProductPrev" id="selProductPrev" value="<?php echo $idSelectProduct; ?>">
+<input type="hidden" name="automaticScroll" id="automaticScroll" value="<?php echo $enableScroll; ?>">
 <?php 
 
 foreach ($iid as $singleId){
@@ -107,7 +117,7 @@ foreach ($iid as $singleId){
 
 </head>
 
-<body>
+<body class="<?= $disableBody; ?>">
 
 <div id="container" class="row">
 
@@ -362,6 +372,48 @@ addItems();
 });
 
 $(document).ready(function () {
+
+
+  var automaticScroll=$("#automaticScroll").val();
+  if (automaticScroll=="true"){
+    var lunghezzaScroll=document.documentElement.scrollHeight;
+    console.log(lunghezzaScroll);
+    var millisecondi=5000;
+    var velocita=100;
+    var numVolte=millisecondi/velocita;
+    var incrementoPixel=lunghezzaScroll/numVolte;
+    var secondiScroll=0;
+    var countTimer;
+    var scrolldelay;
+    var conta=0;
+
+    var varStartCronometroScroll=setInterval(startCronometroScroll,1000);
+    var varStartScroll=setInterval(pageScroll,velocita);
+
+    function pageScroll() {
+
+        //SE IL CONTATORE E' INFERIORE ALL'ALTEZZA DELLO SCROLL CONTINUO A SCROLLARE ALTRIMENTI INTERROMPO
+        if (conta<lunghezzaScroll){
+            window.scrollBy(0,incrementoPixel);
+            conta=conta+incrementoPixel;
+        }
+        else{
+            clearInterval(varStartCronometroScroll);
+            clearInterval(varStartScroll);
+            alert("NEXT");
+        }
+        
+    };
+
+
+
+    function startCronometroScroll(){
+      secondiScroll++
+    };
+  }
+
+
+
   addItems();
 
   /*GIUSEPPE*/
@@ -462,6 +514,13 @@ function stopCronometroSheet(){
   clearInterval(varStartCronometroSheet);
 };
 /* */
+
+
+
+
+
+
+
 
 </script>
 
