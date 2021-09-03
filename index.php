@@ -18,7 +18,7 @@
 /* GIUSEPPE */
 $idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
 $enableScroll = filter_input(INPUT_GET, 'enableScroll');
-$enableScroll="false";
+$enableScroll="true";
 $disableBody="";
 if ($enableScroll=="true"){
   $disableBody="disabledbody";
@@ -385,12 +385,12 @@ $(document).ready(function () {
 
   var automaticScroll=$("#automaticScroll").val();
   if (automaticScroll=="true"){
-    var lunghezzaScroll=document.documentElement.scrollHeight;
-    console.log(lunghezzaScroll);
+    
+    //console.log(lunghezzaScroll);
+
     var millisecondi=5000;
     var velocita=100;
     var numVolte=millisecondi/velocita;
-    var incrementoPixel=lunghezzaScroll/numVolte;
     var secondiScroll=0;
     var countTimer;
     var scrolldelay;
@@ -401,16 +401,34 @@ $(document).ready(function () {
 
     function pageScroll() {
 
+    //console.log($(window).scrollTop());
+    //console.log($(window).height());
+    //console.log($(document).height());
+    var lunghezzaScroll=$(document).height()-$(window).height();
+    var incrementoPixel=lunghezzaScroll/numVolte;
+
         //SE IL CONTATORE E' INFERIORE ALL'ALTEZZA DELLO SCROLL CONTINUO A SCROLLARE ALTRIMENTI INTERROMPO
-        if (conta<lunghezzaScroll){
-            window.scrollBy(0,incrementoPixel);
-            conta=conta+incrementoPixel;
-        }
-        else{
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
             clearInterval(varStartCronometroScroll);
             clearInterval(varStartScroll);
             alert("NEXT");
         }
+        else {
+            window.scrollBy(0,incrementoPixel);
+            conta=conta+incrementoPixel;
+
+            //console.log($(window).scrollTop());
+            //console.log($(window).height());
+            //console.log($(document).height());
+            //console.log("----------------");
+        }
+        /*
+        else{
+            clearInterval(varStartCronometroScroll);
+            clearInterval(varStartScroll);
+            alert(conta);
+        }
+        */
         
     };
 
@@ -418,6 +436,7 @@ $(document).ready(function () {
 
     function startCronometroScroll(){
       secondiScroll++
+      console.log(secondiScroll);
     };
   }
 
