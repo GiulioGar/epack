@@ -24,7 +24,7 @@ if ($enableScroll=="true"){
   $disableBody="disabledbody";
 }
 //valore manuale per test
-$idSelectProduct = 2;
+//$idSelectProduct = 2;
 /* */
 
 //GIULIO 
