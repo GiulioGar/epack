@@ -18,20 +18,23 @@
 /* GIUSEPPE */
 $idSelectProduct = filter_input(INPUT_GET, 'idSelectProduct');
 $enableScroll = filter_input(INPUT_GET, 'enableScroll');
-$enableScroll="true";
+$enableScroll="false";
 $disableBody="";
 if ($enableScroll=="true"){
   $disableBody="disabledbody";
 }
 //valore manuale per test
-//$idSelectProduct = 2;
+$idSelectProduct = 2;
 /* */
 
 //GIULIO 
 //variabile max options from sdl
 $selMax = filter_input(INPUT_GET, 'selMax');
+if (empty($selMax)){
+    $selMax=1;
+}
 //test setting
-$selMax=2;
+//$selMax=2;
 
 // Decode the JSON file
 $jsonFile = file_get_contents('options.json');
